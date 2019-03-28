@@ -5,6 +5,9 @@
 * [Kubenetes settings](kubenetes-settings.md)
 * [sonarqube](sonarqube.md)
 * [VirtualBox GuestAddition](virtualbox-guestaddition.md)
-* [Spring Boot](spring-boot.md)
-* [Centos Env](centos-env.md)
+
+## group
+
+* [Spring Boot](group/spring-boot.md)
+* [Centos Env](group/centos-env.md)
 
