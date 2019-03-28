@@ -8,6 +8,7 @@
 
 ## group
 
-* [Spring Boot](group/spring-boot.md)
+* [Spring Boot](group/spring-boot/README.md)
+  * [test-child](group/spring-boot/test-child.md)
 * [Centos Env](group/centos-env.md)
 
