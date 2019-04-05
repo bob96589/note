@@ -38,7 +38,11 @@ tomcat-user.xml
     roles="manager-gui,manager-status,manager-script,manager-jmx,admin-gui"/>
 ```
 
+start tomcat
 
-
-
+```text
+systemctl status tomcat
+systemctl start tomcat
+systemctl restart tomcat
+```
 
