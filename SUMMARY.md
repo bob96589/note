@@ -6,6 +6,7 @@
 * [sonarqube](sonarqube.md)
 * [VirtualBox GuestAddition](virtualbox-guestaddition.md)
 * [restful-demo in CentOS 7](restful-demo-in-centos-7.md)
+* [Restart gcp](untitled.md)
 
 ## group
 
