@@ -8,6 +8,8 @@
 * [restful-demo in CentOS 7](restful-demo-in-centos-7.md)
 * [Restart gcp](untitled.md)
 * [CentOS command](untitled-1.md)
+* [Virtualbox same uuid](virtualbox-same-uuid.md)
+* [CentOS 7.6](centos-7.6.md)
 
 ## group
 
