@@ -2,7 +2,7 @@
 description: CentOS command
 ---
 
-# Untitled
+# CentOS command
 
 pwd
 
