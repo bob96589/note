@@ -54,6 +54,20 @@ firewall-cmd --reload
 
 virtual box port forward 
 
+### sudo
+
+is not in the sudoers file. This incident will be reported
+
+su
+
+chmod u+w /etc/sudoers
+
+vi /etc/sudoers
+
+xxx ALL=\(ALL\) ALL
+
+chmod u-w /etc/sudoers
+
 ### Docker
 
 yum install docker
@@ -64,9 +78,49 @@ systemctl enable docker
 
 rpm -qa\|grep docker \(查看docker裝了哪些東西\)
 
+
+
+### dial unix /var/run/docker.sock: connect: permission denied
+
+groupadd docker
+
+ls -la /var/run/docker.sock
+
+chown :docker /var/run/docker.sock
+
+usermod -g docker user
+
+
+
+Change the owner of a file: chown root file
+
+Change the group of a file: chown :friends file
+
 ### Jenkins
 
+jenkins on centos: [https://oranwind.org/-devops-jenkins-an-zhuang-jiao-xue/](https://oranwind.org/-devops-jenkins-an-zhuang-jiao-xue/)
+
+jenkins on docker: [https://ithelp.ithome.com.tw/articles/10200621?sc=iThelpR](https://ithelp.ithome.com.tw/articles/10200621?sc=iThelpR)
+
+sudo mkdir -p /data/jenkins
+
+sudo chown -R $USER:$GROUP /data
+
+docker run  --name jenkins  -d --restart always  -p 9003:8080 -p 50000:50000  -v /data/jenkins:/var/jenkins\_home  jenkins/jenkins:lts
+
+localhost:9003
+
+cat /data/jenkins/secrets/initialAdminPassword
+
 ### Gitlab
+
+gitlab on docker: [https://blog.toright.com/posts/5831/%E4%B8%89%E7%A7%92%E6%95%99%E4%BD%A0%E7%94%A8-docker-%E5%AE%89%E8%A3%9D-gitlab.html](https://blog.toright.com/posts/5831/%E4%B8%89%E7%A7%92%E6%95%99%E4%BD%A0%E7%94%A8-docker-%E5%AE%89%E8%A3%9D-gitlab.html)
+
+sudo docker run --detach --hostname gitlab.example.com --publish 443:443 --publish 9004:80 --name gitlab --restart always --volume /gitlab/config:/etc/gitlab --volume /gitlab/logs:/var/log/gitlab --volume /gitlab/data:/var/opt/gitlab  gitlab/gitlab-ce:latest
+
+### PostgreSQL
+
+
 
 ### Sonarqube
 
