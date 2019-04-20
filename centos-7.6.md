@@ -96,6 +96,18 @@ Change the owner of a file: chown root file
 
 Change the group of a file: chown :friends file
 
+### Firewall
+
+su
+
+firewall-cmd --zone=public --add-port=6379/tcp --permanent 
+
+firewall-cmd --zone=public --add-port=8000-9999/tcp --permanent 
+
+firewall-cmd --reload 
+
+firewall-cmd --zone=public --list-all
+
 ### Jenkins
 
 jenkins on centos: [https://oranwind.org/-devops-jenkins-an-zhuang-jiao-xue/](https://oranwind.org/-devops-jenkins-an-zhuang-jiao-xue/)
@@ -112,11 +124,15 @@ localhost:9003
 
 cat /data/jenkins/secrets/initialAdminPassword
 
+admin/admin
+
 ### Gitlab
 
 gitlab on docker: [https://blog.toright.com/posts/5831/%E4%B8%89%E7%A7%92%E6%95%99%E4%BD%A0%E7%94%A8-docker-%E5%AE%89%E8%A3%9D-gitlab.html](https://blog.toright.com/posts/5831/%E4%B8%89%E7%A7%92%E6%95%99%E4%BD%A0%E7%94%A8-docker-%E5%AE%89%E8%A3%9D-gitlab.html)
 
 sudo docker run --detach --hostname gitlab.example.com --publish 443:443 --publish 9004:80 --name gitlab --restart always --volume /gitlab/config:/etc/gitlab --volume /gitlab/logs:/var/log/gitlab --volume /gitlab/data:/var/opt/gitlab  gitlab/gitlab-ce:latest
+
+root/P@ssw0rd
 
 ### PostgreSQL
 
