@@ -4,6 +4,10 @@
 
 In newer versions of VirtualBox select from **File menu** &gt; **Host network manager**. Add Host only adaptor
 
+### VMSVGA
+
+VirtualBox預設顯示模式為VMSVGA
+
 ### full screen \(x\)
 
 yum install gcc kernel-devel
@@ -14,21 +18,31 @@ yum remove kernel........
 
 sh VBoxLinuxAdditions.sh
 
+VirtualBox預設顯示模式為VMVGA
+
 reboot 
 
 f1
 
 [https://www.youtube.com/watch?v=YO3Vp8dZIyo](https://www.youtube.com/watch?v=YO3Vp8dZIyo)
 
-e
+boot server, press "e"
 
-UTF-8 selinux=0
+at the end ot the "linux16" line : added selinux=0 \(to disable SELinux and allow boot to succeed as described by Terrence\)
 
-ctrl + x
+ctrl+x
 
-vi /etc/selinux/config
+login to server and reinstall selinux-policy-targeted
 
-SELINUX=disabled
+yum reinstall selinux-policy-targeted
+
+touch /.autorelabel
+
+systemctl reboot
+
+after reboot check SELinux status
+
+sestatus
 
 
 
@@ -95,6 +109,10 @@ usermod -g docker user
 Change the owner of a file: chown root file
 
 Change the group of a file: chown :friends file
+
+chown -R user:user file
+
+recursive change??????????????
 
 ### Firewall
 
