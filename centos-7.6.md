@@ -136,7 +136,9 @@ sudo mkdir -p /data/jenkins
 
 sudo chown -R $USER:$GROUP /data
 
-docker run  --name jenkins  -d --restart always  -p 9003:8080 -p 50000:50000  -v /data/jenkins:/var/jenkins\_home  jenkins/jenkins:lts
+docker run  --name jenkins  -d -p 9003:8080 -p 50000:50000  -v /data/jenkins:/var/jenkins\_home  jenkins/jenkins:lts
+
+--restart always  
 
 localhost:9003
 
