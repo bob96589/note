@@ -141,70 +141,67 @@ recursive change??????????????
 
 su
 
-firewall-cmd --zone=public --add-port=6379/tcp --permanent 
-
-firewall-cmd --zone=public --add-port=8000-9999/tcp --permanent 
-
-firewall-cmd --reload 
-
+firewall-cmd --zone=public --add-port=6379/tcp --permanent  
+firewall-cmd --zone=public --add-port=8000-9999/tcp --permanent  
+firewall-cmd --reload  
 firewall-cmd --zone=public --list-all
+
+### Docker run command parameter
+
+--restart always  
 
 ### Jenkins
 
-jenkins on centos: [https://oranwind.org/-devops-jenkins-an-zhuang-jiao-xue/](https://oranwind.org/-devops-jenkins-an-zhuang-jiao-xue/)
-
+jenkins on centos: [https://oranwind.org/-devops-jenkins-an-zhuang-jiao-xue/](https://oranwind.org/-devops-jenkins-an-zhuang-jiao-xue/)  
 jenkins on docker: [https://ithelp.ithome.com.tw/articles/10200621?sc=iThelpR](https://ithelp.ithome.com.tw/articles/10200621?sc=iThelpR)
 
-sudo mkdir -p /data/jenkins  
-sudo chown -R $USER:$GROUP /data
+sudo mkdir -p /app/jenkins  
+sudo chown -R $USER:$GROUP /app/jenkins
 
 docker run -d \  
 --name jenkins \  
 -p 9003:8080 \  
 -p 50000:50000 \  
--v /data/jenkins:/var/jenkins\_home \  
+-v /app/jenkins:/var/jenkins\_home \  
 jenkins/jenkins:lts
 
---restart always  
-
-localhost:9003
-
-cat /data/jenkins/secrets/initialAdminPassword
-
+localhost:9003  
+cat /app/jenkins/secrets/initialAdminPassword  
 admin/admin
 
 ### Gitlab
 
 gitlab on docker: [https://blog.toright.com/posts/5831/%E4%B8%89%E7%A7%92%E6%95%99%E4%BD%A0%E7%94%A8-docker-%E5%AE%89%E8%A3%9D-gitlab.html](https://blog.toright.com/posts/5831/%E4%B8%89%E7%A7%92%E6%95%99%E4%BD%A0%E7%94%A8-docker-%E5%AE%89%E8%A3%9D-gitlab.html)
 
-sudo mkdir -p /gitlab/config /gitlab/logs /gitlab/data  
-sudo chown -R $USER:$GROUP /gitlab
+sudo mkdir -p /app/gitlab/config /app/gitlab/logs /app/gitlab/data  
+sudo chown -R $USER:$GROUP /app/gitlab
 
 sudo docker run --detach \  
 --hostname gitlab.example.com \  
 --publish 443:443 \  
 --publish 9004:80 \  
 --name gitlab \  
---restart always \  
---volume /gitlab/config:/etc/gitlab \  
---volume /gitlab/logs:/var/log/gitlab \  
---volume /gitlab/data:/var/opt/gitlab \  
+--volume /app/gitlab/config:/etc/gitlab \  
+--volume /app/gitlab/logs:/var/log/gitlab \  
+--volume /app/gitlab/data:/var/opt/gitlab \  
 gitlab/gitlab-ce:latest
 
+localhost:9004  
 root/P@ssw0rd
 
 ### PostgreSQL
 
-docker network create myNetwork docker network list
+docker network create myNetwork  
+docker network list
 
-sudo mkdir -p ~/Postgres  
-sudo chown -R $USER:$GROUP ~/Postgres
+sudo mkdir -p /app/postgres  
+sudo chown -R $USER:$GROUP /app/postgres
 
 docker run -d \  
---name MyPostgres \  
+--name postgres \  
 --network myNetwork \  
 -p 9006:5432 \  
--v ~/Postgres:/var/lib/postgresql/data \  
+-v /app/postgres:/var/lib/postgresql/data \  
 -e POSTGRES\_DB=sonar \  
 -e POSTGRES\_USER=admin \  
 -e POSTGRES\_PASSWORD='admin' \  
@@ -218,8 +215,10 @@ docker run -d \
 -p 9005:9000 \  
 -e sonar.jdbc.username=admin \  
 -e sonar.jdbc.password=admin \  
--e sonar.jdbc.url="jdbc:postgresql://MyPostgres:5432/sonar" \  
+-e sonar.jdbc.url="jdbc:postgresql://postgres:5432/sonar" \  
 sonarqube
+
+localhost:9005
 
 
 
