@@ -160,6 +160,7 @@ sudo chown -R $USER:$GROUP /app/jenkins
 
 docker run -d \  
 --name jenkins \  
+--network myNetwork \  
 -p 9003:8080 \  
 -p 50000:50000 \  
 -v /app/jenkins:/var/jenkins\_home \  
@@ -168,6 +169,9 @@ jenkins/jenkins:lts
 localhost:9003  
 cat /app/jenkins/secrets/initialAdminPassword  
 admin/admin
+
+Global Tool Configuration/Maven installations/Install automatically  
+-f ./source/ckms clean package -U sonar:sonar -Dsonar.host.url=[http://sonarqube:9000](http://sonarqube:9000) -Dsonar.sourceEncoding=UTF-8
 
 ### Gitlab
 
@@ -181,6 +185,7 @@ sudo docker run --detach \
 --publish 443:443 \  
 --publish 9004:80 \  
 --name gitlab \  
+--network myNetwork \  
 --volume /app/gitlab/config:/etc/gitlab \  
 --volume /app/gitlab/logs:/var/log/gitlab \  
 --volume /app/gitlab/data:/var/opt/gitlab \  
@@ -219,6 +224,8 @@ docker run -d \
 sonarqube
 
 localhost:9005
+
+admin/admin
 
 
 
