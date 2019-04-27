@@ -44,6 +44,29 @@ after reboot check SELinux status
 
 sestatus
 
+  
+**★★ 暫時性的關掉或開啟 selinux ★★** 
+
+$ getenforce  
+Enforcing  
+$ sudo setenforce 0  
+$ getenforce  
+Permissive  
+$ sudo setenforce 1  
+$ getenforce  
+Enforcing  
+
+
+**★★ 永久性的關掉 selinux ★★** 
+
+$ sudo vi /etc/sysconfig/selinux     
+
+找到  
+SELINUX=enforcing  
+然後修改為  
+SELINUX=disabled  
+要重新開機 reboot / restart 後才會套用
+
 
 
 ### Copy and Paste\(ok\)
@@ -149,6 +172,8 @@ admin/admin
 ### Gitlab
 
 gitlab on docker: [https://blog.toright.com/posts/5831/%E4%B8%89%E7%A7%92%E6%95%99%E4%BD%A0%E7%94%A8-docker-%E5%AE%89%E8%A3%9D-gitlab.html](https://blog.toright.com/posts/5831/%E4%B8%89%E7%A7%92%E6%95%99%E4%BD%A0%E7%94%A8-docker-%E5%AE%89%E8%A3%9D-gitlab.html)
+
+sudo mkdir -p /gitlab/config /gitlab/logs /gitlab/data
 
 sudo docker run --detach --hostname gitlab.example.com --publish 443:443 --publish 9004:80 --name gitlab --restart always --volume /gitlab/config:/etc/gitlab --volume /gitlab/logs:/var/log/gitlab --volume /gitlab/data:/var/opt/gitlab  gitlab/gitlab-ce:latest
 
