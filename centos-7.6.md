@@ -155,11 +155,15 @@ jenkins on centos: [https://oranwind.org/-devops-jenkins-an-zhuang-jiao-xue/](ht
 
 jenkins on docker: [https://ithelp.ithome.com.tw/articles/10200621?sc=iThelpR](https://ithelp.ithome.com.tw/articles/10200621?sc=iThelpR)
 
-sudo mkdir -p /data/jenkins
-
+sudo mkdir -p /data/jenkins  
 sudo chown -R $USER:$GROUP /data
 
-docker run  --name jenkins  -d -p 9003:8080 -p 50000:50000  -v /data/jenkins:/var/jenkins\_home  jenkins/jenkins:lts
+docker run -d \  
+--name jenkins \  
+-p 9003:8080 \  
+-p 50000:50000 \  
+-v /data/jenkins:/var/jenkins\_home \  
+jenkins/jenkins:lts
 
 --restart always  
 
@@ -173,17 +177,49 @@ admin/admin
 
 gitlab on docker: [https://blog.toright.com/posts/5831/%E4%B8%89%E7%A7%92%E6%95%99%E4%BD%A0%E7%94%A8-docker-%E5%AE%89%E8%A3%9D-gitlab.html](https://blog.toright.com/posts/5831/%E4%B8%89%E7%A7%92%E6%95%99%E4%BD%A0%E7%94%A8-docker-%E5%AE%89%E8%A3%9D-gitlab.html)
 
-sudo mkdir -p /gitlab/config /gitlab/logs /gitlab/data
+sudo mkdir -p /gitlab/config /gitlab/logs /gitlab/data  
+sudo chown -R $USER:$GROUP /gitlab
 
-sudo docker run --detach --hostname gitlab.example.com --publish 443:443 --publish 9004:80 --name gitlab --restart always --volume /gitlab/config:/etc/gitlab --volume /gitlab/logs:/var/log/gitlab --volume /gitlab/data:/var/opt/gitlab  gitlab/gitlab-ce:latest
+sudo docker run --detach \  
+--hostname gitlab.example.com \  
+--publish 443:443 \  
+--publish 9004:80 \  
+--name gitlab \  
+--restart always \  
+--volume /gitlab/config:/etc/gitlab \  
+--volume /gitlab/logs:/var/log/gitlab \  
+--volume /gitlab/data:/var/opt/gitlab \  
+gitlab/gitlab-ce:latest
 
 root/P@ssw0rd
 
 ### PostgreSQL
 
+docker network create myNetwork docker network list
 
+sudo mkdir -p ~/Postgres  
+sudo chown -R $USER:$GROUP ~/Postgres
+
+docker run -d \  
+--name MyPostgres \  
+--network myNetwork \  
+-p 9006:5432 \  
+-v ~/Postgres:/var/lib/postgresql/data \  
+-e POSTGRES\_DB=sonar \  
+-e POSTGRES\_USER=admin \  
+-e POSTGRES\_PASSWORD='admin' \  
+postgres:latest
 
 ### Sonarqube
+
+docker run -d \  
+--name sonarqube \  
+--network myNetwork \  
+-p 9005:9000 \  
+-e sonar.jdbc.username=admin \  
+-e sonar.jdbc.password=admin \  
+-e sonar.jdbc.url="jdbc:postgresql://MyPostgres:5432/sonar" \  
+sonarqube
 
 
 
