@@ -150,6 +150,8 @@ firewall-cmd --zone=public --list-all
 
 --restart always  
 
+docker pull jenkins/jenkins:lts gitlab/gitlab-ce:latest postgres:latest sonarqube
+
 ### Jenkins
 
 jenkins on centos: [https://oranwind.org/-devops-jenkins-an-zhuang-jiao-xue/](https://oranwind.org/-devops-jenkins-an-zhuang-jiao-xue/)  
@@ -157,6 +159,8 @@ jenkins on docker: [https://ithelp.ithome.com.tw/articles/10200621?sc=iThelpR](h
 
 sudo mkdir -p /app/jenkins  
 sudo chown -R $USER:$GROUP /app/jenkins
+
+windows /app -&gt; /c/Users/app
 
 docker run -d \  
 --name jenkins \  
