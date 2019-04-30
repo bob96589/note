@@ -105,6 +105,22 @@ xxx ALL=\(ALL\) ALL
 
 chmod u-w /etc/sudoers
 
+### sharedFolder
+
+![](.gitbook/assets/tu-pian-152.png)
+
+don't need to shutdown   
+mkdir /mnt/shareFolder   
+mount -t vboxsf shareFolder /mnt/shareFolder   
+mount.vboxsf shareFolder /mnt/shareFolder   
+mounting failed with the error: Protocol error   
+不要選自動掛載   
+modprobe vboxvfs
+
+### View hidden file
+
+ctrl + h
+
 ### Docker
 
 yum install docker
