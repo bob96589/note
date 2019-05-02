@@ -193,6 +193,10 @@ admin/admin
 Global Tool Configuration/Maven installations/Install automatically  
 -f ./source/ckms clean package -U sonar:sonar -Dsonar.host.url=[http://sonarqube:9000](http://sonarqube:9000) -Dsonar.sourceEncoding=UTF-8
 
+![](.gitbook/assets/tu-pian-153%20%281%29.png)
+
+sonar:sonar -Dmaven.test.skip=ture -Dsonar.host.url=[http://sonarqube:9000](http://sonarqube:9000) -Dsonar.sourceEncoding=UTF-8 -Dsonar.login=3596ad9b3c7fb2e855d739389ffa4234d2be29a0
+
 ### Gitlab
 
 gitlab on docker: [https://blog.toright.com/posts/5831/%E4%B8%89%E7%A7%92%E6%95%99%E4%BD%A0%E7%94%A8-docker-%E5%AE%89%E8%A3%9D-gitlab.html](https://blog.toright.com/posts/5831/%E4%B8%89%E7%A7%92%E6%95%99%E4%BD%A0%E7%94%A8-docker-%E5%AE%89%E8%A3%9D-gitlab.html)
