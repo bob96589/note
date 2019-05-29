@@ -60,7 +60,10 @@ cp -r d1 copy_d1
 
 
 
-
+ps aux
+kill 12345
+kill -9 12345
+ -9 的參數強制終止它，
 
 
 
