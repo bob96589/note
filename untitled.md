@@ -8,7 +8,11 @@ start database
 
 start vm 
 
-confirm database ip 
+confirm database ip  \(vm-ip\)  
+[https://console.cloud.google.com/sql/instances/polling-app-mysql/connections?project=new-project-231716](https://console.cloud.google.com/sql/instances/polling-app-mysql/connections?project=new-project-231716)  
+[https://console.cloud.google.com/compute/instances?project=new-project-231716&instancessize=50](https://console.cloud.google.com/compute/instances?project=new-project-231716&instancessize=50)
+
+gcloud auth login
 
 kubectl get pods 
 
