@@ -1,5 +1,15 @@
 # Docker Command
 
+
+
+Docker is a platform or ecosystem around creating and running containers
+
+Image: single file with all the config and deps required to run a program
+
+Container: Instance of a image. Runs a program
+
+Docker Client\(Docker CLI\):  
+
 ```text
 $ docker-machine ls
 NAME      ACTIVE   DRIVER       STATE   URL   SWARM   DOCKER    ERRORS
