@@ -8,6 +8,20 @@ In newer versions of VirtualBox select from **File menu** &gt; **Host network ma
 
 VirtualBox預設顯示模式為VMSVGA
 
+
+
+### full screen \(o\)
+
+{% embed url="https://wiki.centos.org/HowTos/Virtualization/VirtualBox/CentOSguest" %}
+
+yum install dkms
+
+yum groupinstall "Development Tools" 
+
+yum install kernel-devel
+
+安裝的版本要相同
+
 ### full screen \(x\)
 
 yum install gcc kernel-devel
@@ -83,7 +97,7 @@ AllowUsers 帳號1 帳號2 帳號3
 
 systemctl restart sshd.service
 
-systemctl enable sshd.service
+systemctl enable sshd.service \(設定下次開機時，後面接的 unit 會被啟動\)
 
 firewall-cmd --permanent --zone=public --add-port=22/tcp
 
@@ -130,6 +144,36 @@ systemctl start docker
 systemctl enable docker
 
 rpm -qa\|grep docker \(查看docker裝了哪些東西\)
+
+is-active ：目前有沒有正在運作中 
+
+systemctl is-active docker
+
+is-enabled：開機時有沒有預設要啟用這個 unit
+
+systemctl is-enabled docker
+
+
+
+sudo groupadd docker
+
+sudo usermod -G docker -a user
+
+sudo systemctl restart docker
+
+
+
+install docker compose
+
+[https://docs.docker.com/compose/install/](https://docs.docker.com/compose/install/)
+
+sudo curl -L "[https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$\(uname](https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$%28uname) -s\)-$\(uname -m\)" -o /usr/local/bin/docker-compose
+
+sudo chmod +x /usr/local/bin/docker-compose
+
+sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+
+docker-compose --version
 
 
 
