@@ -29,3 +29,11 @@ docker volume create postgres_database
 docker volume ls
 ```
 
+
+
+```text
+# 啟動 Docker 容器
+docker run -it tensorflow/tensorflow bash
+加上 -it 參數代表在執行 Docker 虛擬容器環境時，開啟虛擬終端機
+```
+

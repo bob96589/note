@@ -309,9 +309,9 @@ admin/admin
 
 
 
+### Host
 
-
-
+cat /etc/hosts
 
 
 
