@@ -119,6 +119,16 @@ xxx ALL=\(ALL\) ALL
 
 chmod u-w /etc/sudoers
 
+
+
+sudo vi /etc/sudoers 
+
+或 
+
+sudo visudo 就是去編輯設定檔。
+
+將這行 %sudo ALL=\(ALL:ALL\) ALL 改成 %sudo ALL=\(ALL:ALL\) NOPASSWD:ALL
+
 ### sharedFolder
 
 ![](.gitbook/assets/tu-pian-152.png)
