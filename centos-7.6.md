@@ -131,6 +131,10 @@ sudo visudo 就是去編輯設定檔。
 
 ### sharedFolder
 
+```text
+sudo yum install git
+```
+
 ![](.gitbook/assets/tu-pian-152.png)
 
 don't need to shutdown   
@@ -144,6 +148,16 @@ modprobe vboxvfs
 ### View hidden file
 
 ctrl + h
+
+
+
+### Git
+
+sudo yum install git
+
+git --version
+
+
 
 ### Docker
 
@@ -171,9 +185,11 @@ sudo usermod -G docker -a user
 
 sudo systemctl restart docker
 
+### remove docker
 
+sudo yum remove docker docker-common docker-selinux docker-engine
 
-install docker compose
+### install docker compose
 
 [https://docs.docker.com/compose/install/](https://docs.docker.com/compose/install/)
 
