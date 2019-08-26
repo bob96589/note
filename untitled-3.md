@@ -27,9 +27,14 @@ sudo -i
 
 docker volume create postgres_database
 docker volume ls
+
 ```
 
+### remove docker container and images
 
+docker rm $\(docker ps -a -q\) 
+
+docker rmi $\(docker images -q\)
 
 ```text
 # 啟動 Docker 容器
