@@ -189,6 +189,20 @@ sudo systemctl restart docker
 
 sudo yum remove docker docker-common docker-selinux docker-engine
 
+### upgrade docker
+
+$ sudo yum -y update
+
+$ sudo curl -sSL [https://get.docker.com](https://get.docker.com) \| sh
+
+$ sudo systemctl enable docker
+
+$ sudo systemctl start docker
+
+$ sudo ps aux \|grep docker
+
+$ sudo systemctl status docker
+
 ### install docker compose
 
 [https://docs.docker.com/compose/install/](https://docs.docker.com/compose/install/)
