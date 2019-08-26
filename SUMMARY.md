@@ -12,6 +12,7 @@
 * [CentOS 7.6](centos-7.6.md)
 * [docker toolbox](untitled-2.md)
 * [Docker Command](untitled-3.md)
+* [nexus](nexus.md)
 
 ## group
 
