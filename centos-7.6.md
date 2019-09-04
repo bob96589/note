@@ -105,6 +105,14 @@ firewall-cmd --reload
 
 virtual box port forward 
 
+### SSH root
+
+vi /etc/ssh/sshd\_config
+
+AllowUsers root user
+
+PermitRootLogin yes
+
 ### sudo
 
 is not in the sudoers file. This incident will be reported
