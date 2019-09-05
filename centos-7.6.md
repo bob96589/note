@@ -169,6 +169,8 @@ git --version
 
 ### Docker
 
+yum install -y -q docker-ce
+
 yum install docker
 
 systemctl start docker
