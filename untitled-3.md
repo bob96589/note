@@ -46,7 +46,22 @@ docker run -it tensorflow/tensorflow bash
 
 -d :daemon which means that the docker container would run in the background completely detached from your current shell.在背景執行。在terminal中不會看到有東西，在docker logs裡面會看到有東西在跑。有些文章把它翻譯成守護狀態。
 
-### docker top
+### docker top \[container\_id\]
 
 秀出 Container 正在執行的 process
+
+### docker stats \[container\_id\]
+
+顯示容器使用的系統資源  
+\[CONTAINER\]：以短格式顯示容器的 ID。   
+\[CPU %\]：CPU 的使用情況。   
+\[MEM USAGE / LIMIT\]：當前使用的記憶體和最大可以使用的記憶體。  
+\[MEM %\]：以百分比的形式顯示記憶體使用情況。   
+\[NET I/O\]：網路 I/O 資料。  
+\[BLOCK I/O\]：磁碟 I/O 資料。  
+\[PIDS\]：PID 號。
+
+### docker stats --no-stream  \[container\_id\]
+
+如果不想持續的監控容器使用資源的情況，可以通過 –no-stream 選項只輸出當前的狀態
 
