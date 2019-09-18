@@ -42,3 +42,11 @@ docker run -it tensorflow/tensorflow bash
 加上 -it 參數代表在執行 Docker 虛擬容器環境時，開啟虛擬終端機
 ```
 
+### docker run -d
+
+-d :daemon which means that the docker container would run in the background completely detached from your current shell.在背景執行。在terminal中不會看到有東西，在docker logs裡面會看到有東西在跑。有些文章把它翻譯成守護狀態。
+
+### docker top
+
+秀出 Container 正在執行的 process
+
