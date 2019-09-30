@@ -360,5 +360,25 @@ cat /etc/hosts
 
 
 
+### df -h
 
+檔案系統 容量 已用 可用 已用% 掛載點   
+/dev/mapper/cl-root 37G 24G 14G 64% /   
+devtmpfs 2.9G 0 2.9G 0% /dev   
+tmpfs 3.0G 0 3.0G 0% /dev/shm   
+tmpfs 3.0G 9.3M 3.0G 1% /run   
+tmpfs 3.0G 0 3.0G 0% /sys/fs/cgroup   
+/dev/sda1 1014M 165M 850M 17% /boot   
+tmpfs 597M 12K 597M 1% /run/user/42   
+tmpfs 597M 0 597M 0% /run/user/1000
+
+### lsblk
+
+NAME MAJ:MIN RM SIZE RO TYPE MOUNTPOINT   
+sda 8:0 0 40G 0 disk   
+├─sda1 8:1 0 1G 0 part /boot   
+└─sda2 8:2 0 39G 0 part   
+     ├─cl-root 253:0 0 37G 0 lvm /   
+     └─cl-swap 253:1 0 2G 0 lvm \[SWAP\]   
+sr0 11:0 1 82M 0 rom
 
