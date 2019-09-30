@@ -358,6 +358,18 @@ admin/admin
 
 cat /etc/hosts
 
+### 加大 CentOS 虛擬機硬碟空間
+
+"C:\Program Files\Oracle\VirtualBox\VboxManage.exe" modifyhd "centos 7.3.vdi" --resize 61440
+
+下載 GParted Live CD 
+
+lvresize -l +100%FREE /dev/cl/root 
+
+xfs\_growfs /dev/cl/root
+
+[http://oldgrayduck.blogspot.com/2016/07/virtualbox-centos.html](http://oldgrayduck.blogspot.com/2016/07/virtualbox-centos.html)
+
 
 
 ### df -h
