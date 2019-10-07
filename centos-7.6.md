@@ -350,7 +350,24 @@ localhost:9005
 
 admin/admin
 
+### Oracle DB
 
+```text
+docker pull store/oracle/database-enterprise:12.2.0.1-slim
+docker run -d -it --name OraDevDB -p 1521:1521 store/oracle/database-enterprise:12.2.0.1-slim
+docker exec -it OraDevDB bash -c "source /home/oracle/.bashrc; sqlplus /nolog"
+SQL> connect sys as sysdba;
+SQL> alter session set "_ORACLE_SCRIPT"=true;
+SQL> create user tuser identified by tuser;
+SQL> GRANT CONNECT, RESOURCE, DBA TO tuser;
+SQL> select value from v$parameter where name='service_names';
+SQL> disconnect;
+
+ORCLCDB.localdomain
+
+firewall-cmd --zone=public --add-port=1521/tcp --permanent
+firewall-cmd --reload
+```
 
 
 
