@@ -417,6 +417,8 @@ sr0 11:0 1 82M 0 rom
 
 nmap -p 1521 10.146.208.5
 
+nmap -Pn 180.177.99.88
+
 wget ip:port
 
 [https://www.cyberciti.biz/faq/ping-test-a-specific-port-of-machine-ip-address-using-linux-unix/](https://www.cyberciti.biz/faq/ping-test-a-specific-port-of-machine-ip-address-using-linux-unix/)
