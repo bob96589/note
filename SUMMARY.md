@@ -1,6 +1,7 @@
 # Table of contents
 
 * [Initial page](README.md)
+* [ubuntu](ubuntu.md)
 * [Setup Tomcat in Centos](setup-tomcat-in-centos.md)
 * [Kubenetes settings](kubenetes-settings.md)
 * [sonarqube](sonarqube.md)
